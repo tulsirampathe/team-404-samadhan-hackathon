@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 2 - Functions & Loops</title>
+</head>
+<body>
+  <h1>Hackathon Task - Day 2</h1>
+
+  <script>
+    const marks = [78, 92, 85, 67, 99, 81, 74];
+
+    function findHighestMark(marksArray) {
+      let highest = marksArray[0]; 
+      for (let i = 1; i < marksArray.length; i++) {
+        if (marksArray[i] > highest) {
+          highest = marksArray[i];
+        }
+      }
+      return highest;
+    }
+
+    const highestMarks = findHighestMark(marks);
+
+    console.log("Marks:", marks);
+    console.log("Highest Marks:", highestMarks);
+  </script>
+</body>
+</html>
