@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Day 3 - Student Marks Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input {
+      margin: 5px 0;
+      padding: 8px;
+      width: 200px;
+    }
+    button {
+      padding: 8px 15px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f4f4f4;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hackathon Task - Day 3</h1>
+  <p>Enter student details and marks</p>
+
+  <form id="marksForm">
+    <input type="text" id="name" placeholder="Student Name" required><br>
+    <input type="text" id="rollNumber" placeholder="Roll Number" required><br>
+    <input type="number" id="maths" placeholder="Maths Marks" required><br>
+    <input type="number" id="science" placeholder="Science Marks" required><br>
+    <input type="number" id="english" placeholder="English Marks" required><br>
+    <input type="number" id="computer" placeholder="Computer Marks" required><br>
+    <input type="number" id="history" placeholder="History Marks" required><br>
+    <button type="submit">Calculate</button>
+  </form>
+
+  <div class="result" id="output"></div>
+
+  <script>
+    document.getElementById("marksForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      const student = {
+        name: document.getElementById("name").value,
+        rollNumber: document.getElementById("rollNumber").value,
+        marks: {
+          maths: Number(document.getElementById("maths").value),
+          science: Number(document.getElementById("science").value),
+          english: Number(document.getElementById("english").value),
+          computer: Number(document.getElementById("computer").value),
+          history: Number(document.getElementById("history").value)
+        }
+      };
+
+      const marksArray = Object.values(student.marks);
+
+      const total = marksArray.reduce((sum, mark) => sum + mark, 0);
+      const average = total / marksArray.length;
+      const highest = Math.max(...marksArray);
+
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = `
+        <strong>Student Name:</strong> ${student.name} <br>
+        <strong>Roll Number:</strong> ${student.rollNumber} <br><br>
+        <strong>Total Marks:</strong> ${total} <br>
+        <strong>Average Marks:</strong> ${average.toFixed(2)} <br>
+        <strong>Highest Marks:</strong> ${highest} <br>
+      `;
+
+      console.log(student);
+    });
+  </script>
+</body>
+</html>
