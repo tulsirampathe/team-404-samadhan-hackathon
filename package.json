@@ -1,0 +1,12 @@
+{
+  "name": "team-404-samadhan-hackathon",
+  "version": "1.0.0",
+  "description": "Welcome to the official GitHub repository of **Team 404** for the **Samadhan 2.0 Hackathon** organized by SISTec. Our project is a powerful response to the theme of **Agentic AI**, crafted with purpose, precision, and creativity.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
